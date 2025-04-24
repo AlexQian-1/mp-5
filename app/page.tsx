@@ -1,6 +1,7 @@
 'use client';
 import {useState} from 'react';
 import {create} from "@/lib/create";
+import {processEnv} from "@next/env";
 
 
 export default function ShortenUrl() {
@@ -25,7 +26,7 @@ export default function ShortenUrl() {
         create(originalurl, shortUrl).then(res => {
 
             if (res) {
-                setGeneratedUrl(`${window.location.origin}/${shortUrl}`);
+                setGeneratedUrl(`${process.env.BASE_URL}/${shortUrl}`);
                 console.log('Success');
             } else {
                 alert('Already exists');
@@ -52,7 +53,7 @@ export default function ShortenUrl() {
 
                     <div className="flex ">
           <span className="p-3 bg-gray-100 rounded-l-md border border-r-0 text-gray-500 text-sm text-center ">
-            {window.location.origin}
+            {process.env.BASE_URL}
           </span>
                         <input
                             type="text"
