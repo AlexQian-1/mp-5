@@ -1,6 +1,7 @@
 'use client';
 import {useState} from 'react';
 import {create} from "@/lib/create";
+import {processEnv} from "@next/env";
 
 
 export default function ShortenUrl() {
@@ -52,7 +53,7 @@ export default function ShortenUrl() {
 
                     <div className="flex ">
           <span className="p-3 bg-gray-100 rounded-l-md border border-r-0 text-gray-500 text-sm text-center ">
-            http://localhost:3000/
+            {window.location.origin}
           </span>
                         <input
                             type="text"
