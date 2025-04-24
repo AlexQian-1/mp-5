@@ -3,7 +3,6 @@ import {useState} from 'react';
 import {create} from "@/lib/create";
 
 
-
 export default function ShortenUrl() {
     const [originalurl, setOriginalurl] = useState('');
     const [shortUrl, setShortUrl] = useState('');
@@ -26,7 +25,7 @@ export default function ShortenUrl() {
         create(originalurl, shortUrl).then(res => {
 
             if (res) {
-                setGeneratedUrl(`${process.env.BASE_URL}/${shortUrl}`);
+                setGeneratedUrl(`${window.location.origin}/${shortUrl}`);
                 console.log('Success');
             } else {
                 alert('Already exists');
@@ -53,7 +52,7 @@ export default function ShortenUrl() {
 
                     <div className="flex ">
           <span className="p-3 bg-gray-100 rounded-l-md border border-r-0 text-gray-500 text-sm text-center ">
-            {process.env.BASE_URL}
+            https://mp-5-coral-nine.vercel.app/
           </span>
                         <input
                             type="text"
